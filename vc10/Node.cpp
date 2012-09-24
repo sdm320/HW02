@@ -55,6 +55,11 @@ void Node::sendBack(Node* sentinel){
 
 }
 //fixed
+/*
+*links below 
+*http://www.codeproject.com/Articles/24684/How-to-create-Linked-list-using-C-C
+*http://stackoverflow.com/questions/4083428/c-linked-list-insert-function
+*/
 void Node::sendFront(Node* sentinel){
 	Node* last = sentinel -> next_;
 	
