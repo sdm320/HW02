@@ -17,7 +17,7 @@ public:
 	void reverse(Node* sentinel);
 	void sendBack(Node* sentinel);
 	void sendFront(Node* sentinel);
-	void move(Shape myShape);
+	void move(int pixels);
 	bool containsPoint(Vec2i point);
 
 	Shape *data_;

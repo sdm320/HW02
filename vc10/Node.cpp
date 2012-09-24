@@ -23,8 +23,8 @@ void Node::draw(){
 	data_ -> draw();
 }
 
-void Node::move(Shape myShape){
-	return data_ -> move(myShape);
+void Node::move(int pixels){
+	return data_ -> move(pixels);
 }
 /*
 *Method from class

@@ -15,7 +15,7 @@ class Shape {
 public:
 	Shape(Vec2f center, float radius);
 	void draw();
-	void move(Shape myShape);
+	void move(int pixels);
 private:
 	Vec2f center_;
 	Vec2f start_center_;

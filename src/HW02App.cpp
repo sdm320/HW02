@@ -27,6 +27,8 @@ class HW02App : public AppBasic {
 		static const int Width=800; //width of visible window
 		static const int Height=600; //height of visible window
 		static const int Size=1024; //surface size
+		static const int pixels=1;
+	
 
 		void makeTextBox();
 
@@ -103,13 +105,16 @@ void HW02App::keyDown( KeyEvent event){
 }
 //Tried to get move working
 void HW02App::update(){
-	/*frameNumber += .1;
-
+	frameNumber += .1;
 	Node* current_ = sentinel -> next_;
 	do{
-		current_ -> move();
+		current_ -> move(pixels);
 		current_  = current_ -> next_;
-	} while(current_ != sentinel);*/
+		if(frameNumber>.5){
+			current_ ->move(-1*frameNumber);
+			frameNumber=0.0;
+		}
+	} while(current_ != sentinel);
 }
 
 void HW02App::draw(){
