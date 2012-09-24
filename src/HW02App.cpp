@@ -36,6 +36,8 @@ class HW02App : public AppBasic {
 		Node *nodeThree;
 		Node *nodeFour;
 
+		double frameNumber;
+
 		gl::Texture *text_texture;
 		bool displayMenu;
 		TextBox *text_box;
@@ -45,18 +47,28 @@ void HW02App::setup(){
 	mySurface_ = new Surface(Size,Size,false);
 	displayMenu = true;
 	makeTextBox();
-
+	frameNumber=0.0;
+	/*
+	*create four circles
+	*
+	*/
 	Shape *shapeOne = new Shape(Vec2f(500, 150), 100);
 	Shape *shapeTwo = new Shape(Vec2f(500, 200), 75);
 	Shape *shapeThree = new Shape(Vec2f(500, 250), 50);
 	Shape *shapeFour = new Shape(Vec2f(500, 290), 35);
 
+	/*
+	*put the circles into nodes
+	*/
 	nodeOne = new Node(shapeOne);
 	nodeTwo = new Node(shapeTwo);
 	nodeThree = new Node(shapeThree);
 	nodeFour = new Node(shapeFour);
 	sentinel = new Node(nodeOne, nodeFour);
 
+	/*
+	*have nodes point to each other
+	*/
 	nodeOne -> pointers(nodeTwo, sentinel);
 	nodeTwo -> pointers(nodeThree, nodeOne);
 	nodeThree -> pointers(nodeFour, nodeTwo);
@@ -74,9 +86,6 @@ void HW02App::makeTextBox(){
 	text_texture = new gl::Texture(text_box -> render());
 }
 
-/*void HW02App::mouseDown( MouseEvent event ){
-}*/
-
 void HW02App::keyDown( KeyEvent event){
 	
 	if(event.getChar() == '?'){
@@ -93,9 +102,15 @@ void HW02App::keyDown( KeyEvent event){
 		sentinel -> sendToFront(sentinel);
 	}
 }
-
+//Tried to get move working
 void HW02App::update(){
-	
+	/*frameNumber += .1;
+
+	Node* current_ = sentinel -> next_;
+	do{
+		current_ -> move();
+		current_  = current_ -> next_;
+	} while(current_ != sentinel);*/
 }
 
 void HW02App::draw(){

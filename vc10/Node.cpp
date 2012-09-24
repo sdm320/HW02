@@ -5,12 +5,6 @@
 */
 #include "Node.h"
 
-Node::Node(Shape *data, Node *next, Node *prev){
-	data_ = data;
-	next_ = next;
-	prev_ = prev;
-}
-
 Node::Node(Shape *data){
 	data_ = data;
 }
@@ -29,6 +23,9 @@ void Node::draw(){
 	data_ -> draw();
 }
 
+void Node::move(Shape myShape){
+	return data_ -> move(myShape);
+}
 /*
 *Method from class
 */

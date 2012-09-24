@@ -18,4 +18,9 @@ void Shape::draw(){
 	gl::drawSolidCircle(center_, radius_-8);
 }
 
+void Shape::move(Shape myShape){
+	myShape.center_.x -=1;
+	myShape.center_.y -=1;
+
+}
 
