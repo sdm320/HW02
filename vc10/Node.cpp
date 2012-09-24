@@ -14,9 +14,9 @@ Node::Node(Node *next, Node *prev){
 	prev_ = prev;
 }
 
-void Node::pointers(Node *next_node, Node *prev_node){
-	next_ = next_node;
-	prev_ = prev_node;
+void Node::pointers(Node *next, Node *prev){
+	next_ = next;
+	prev_ = prev;
 }
 
 void Node::draw(){
@@ -42,7 +42,7 @@ void Node::reverse(Node* sentinel){
 /*
 *method from class
 */
-void Node::sendToBack(Node* sentinel){
+void Node::sendBack(Node* sentinel){
 	Node* first = sentinel -> prev_;
 	sentinel -> prev_ = sentinel -> prev_ -> prev_;
 	sentinel -> prev_ -> next_ = sentinel;
@@ -54,15 +54,17 @@ void Node::sendToBack(Node* sentinel){
 	sentinel -> next_ = first;
 
 }
-//Broken
-void Node::sendToFront(Node* sentinel){
+//fixed
+void Node::sendFront(Node* sentinel){
 	Node* last = sentinel -> next_;
-	sentinel -> prev_ -> next_ = sentinel -> next_;
-	sentinel -> next_ -> prev_ = sentinel -> prev_;
+	
+	last -> prev_ -> next_ = last -> next_;
+	last -> next_ -> prev_ = last -> prev_;
 
 	last -> next_ = sentinel;
 	last -> prev_ = sentinel -> prev_;
 
 	sentinel -> prev_ -> next_ = last;
 	sentinel -> prev_ = last;
+
 }

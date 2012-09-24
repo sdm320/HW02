@@ -15,8 +15,8 @@ public:
 	void pointers(Node *next_node, Node *prev_node);
 	void draw();
 	void reverse(Node* sentinel);
-	void sendToBack(Node* sentinel);
-	void sendToFront(Node* sentinel);
+	void sendBack(Node* sentinel);
+	void sendFront(Node* sentinel);
 	void move(Shape myShape);
 	bool containsPoint(Vec2i point);
 

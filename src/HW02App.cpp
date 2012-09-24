@@ -80,7 +80,7 @@ void HW02App::setup(){
 void HW02App::makeTextBox(){
 	text_box = new TextBox();
 	text_box -> alignment( TextBox::CENTER );
-	text_box -> setText("Press ? to close menu \n To reverse the list press r \n Send current item to back of list press b \n");
+	text_box -> setText("Press ? to close menu \n To reverse the list press r \n Send current item to back of list press b \n Send next item to front of list press f");
 	text_box -> setFont(Font("Times", 40));
 	text_box->setBackgroundColor(ColorA(0,0,0,0.5));
 	text_texture = new gl::Texture(text_box -> render());
@@ -95,11 +95,10 @@ void HW02App::keyDown( KeyEvent event){
 		sentinel ->reverse(sentinel);
 	}
 	if(event.getCode() == 'b'){
-		sentinel -> sendToBack(sentinel);
-	}
-	//Broken, don't try app will freeze 
+		sentinel -> sendBack(sentinel);
+	} 
 	if(event.getCode() == 'f'){
-		sentinel -> sendToFront(sentinel);
+		sentinel -> sendFront(sentinel);
 	}
 }
 //Tried to get move working
