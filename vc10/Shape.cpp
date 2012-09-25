@@ -21,6 +21,14 @@ void Shape::draw(){
 void Shape::move(int pixels){
 	center_.x -=pixels;
 	center_.y -=pixels;
+}
+//added this method
+float Shape::getCenterY(){
+	return center_.y;
+}
 
+void Shape::moveDown(int pixels){
+	center_.x = 250;
+	center_.y = 250;
 }
 

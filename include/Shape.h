@@ -16,6 +16,8 @@ public:
 	Shape(Vec2f center, float radius);
 	void draw();
 	void move(int pixels);
+	void moveDown(int pixels);
+	float getCenterY(); //added this method to access the x-value of center
 private:
 	Vec2f center_;
 	Vec2f start_center_;

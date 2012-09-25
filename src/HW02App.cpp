@@ -104,16 +104,22 @@ void HW02App::keyDown( KeyEvent event){
 	}
 }
 //Tried to get move working
+//EDIT: Added methods to prevent the circles from running off the screen. Once
+//      the center of the circle goes off the screen, send the circle to the center of the screen
 void HW02App::update(){
 	frameNumber += .1;
 	Node* current_ = sentinel -> next_;
 	do{
 		current_ -> move(pixels);
-		current_  = current_ -> next_;
-		if(frameNumber>.5){
+		if(current_ -> getCenterY() > 0){
 			current_ ->move(-1*frameNumber);
 			frameNumber=0.0;
 		}
+		if(current_ -> getCenterY() < 0){
+			current_ ->moveDown(1*frameNumber);
+			frameNumber=0.0;
+		}
+		current_  = current_ -> next_;
 	} while(current_ != sentinel);
 }
 
