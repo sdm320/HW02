@@ -18,6 +18,8 @@ public:
 	void sendBack(Node* sentinel);
 	void sendFront(Node* sentinel);
 	void move(int pixels);
+	void moveDown(int pixels); //added this method
+	float getCenterY(); //added this method
 	bool containsPoint(Vec2i point);
 
 	Shape *data_;

@@ -26,6 +26,14 @@ void Node::draw(){
 void Node::move(int pixels){
 	return data_ -> move(pixels);
 }
+//added this method
+void Node::moveDown(int pixels){
+	return data_ -> moveDown(pixels);
+}
+//added this method
+float Node::getCenterY(){
+	return data_ -> getCenterY();
+}
 /*
 *Method from class
 */
